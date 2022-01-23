@@ -37,14 +37,16 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ### Setup Laravel
     - Install [metrogistics/laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth)        
 ```
-    composer require metrogistics/laravel-azure-ad-oauth:* -w
+composer require metrogistics/laravel-azure-ad-oauth:* -w
 ```        
+
     - On the env vars of Laravel, place the client ID and client secret.
 ```    
-    AZURE_AD_CLIENT_ID=XXXX
-    AZURE_AD_CLIENT_SECRET=XXXX
+AZURE_AD_CLIENT_ID=XXXX
+AZURE_AD_CLIENT_SECRET=XXXX
 ```
-    - Finally update the database, make password field nullable and add a new field/column called 'azure_id with VARCHAR(36)'
+
+    - Finally update the database, make password field nullable and add a new field/column called 'azure_id with VARCHAR(36)'    
 ```
 Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
 Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
