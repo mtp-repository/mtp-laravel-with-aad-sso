@@ -1,0 +1,53 @@
+Sources:
+- https://github.com/metrogistics/laravel-azure-ad-oauth
+
+Additional Installation:
+AAD: composer require metrogistics/laravel-azure-ad-oauth:* -w
+Socialite: composer require laravel/socialite
+Update DB:
+        - Make password nullable
+        - Add colum azure_id
+
+
+Changes:
+- callback URL: http://localhost:8999/login/microsoft/callback
+- URL to login: http://localhost:8999/login/microsoft
+- Need to enable user authentication: https://laravel.com/docs/8.x/authentication
+
+--------------------------------------------------------------------------
+
+Issues:
+
+'Forbidden page'
+https://stackoverflow.com/questions/18392741/apache2-ah01630-client-denied-by-server-configuration
+
+'Error AADSTS50011 - The reply URL specified in the request does not match the reply URLs configured for the application'
+https://docs.microsoft.com/en-us/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch
+Double check callback URL should be: http://localhost:8999/login/microsoft/callback
+
+'Class "\App\User" not found'
+solution: https://github.com/JosephSilber/bouncer/issues/539
+
+'Class "Metrogistics\AzureSocialite\InvalidStateException" not found'
+solution: https://github.com/metrogistics/laravel-azure-ad-oauth/issues/3
+
+'Command "make:auth" is not defined.'
+https://stackoverflow.com/questions/34545641/php-artisan-makeauth-command-is-not-defined
+
+'Laravel\Socialite\Two\InvalidStateException'
+Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
+Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
+
+'No CSS and JS, app.js and app.css are not found'
+Need to run on the project folder:
+    - npm install
+    - npm run dev (Make Sure Mix is installed properly)
+
+
+Demo Notes:
+
+How to add users into the app:
+https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users
+
+How to change rootDirectory of App Service:
+https://docs.microsoft.com/en-us/azure/app-service/configure-language-php?pivots=platform-linux#change-site-root
