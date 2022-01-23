@@ -21,37 +21,67 @@ Laravel is a web application framework with expressive, elegant syntax. We belie
 
 Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Installation
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Prerequisite
+    - Laravel up and running, if not refer to this link [Laravel Installation](https://laravel.com/docs/8.x/installation)
+    - Users to authenticate with the application and "login" [Authentication Installation](https://laravel.com/docs/8.x/authentication)
+    - Authenticate with OAuth providers using Laravel Socialite [Socialite Installation](https://laravel.com/docs/8.x/socialite)
+    - Install NPM
+    - Install Composer
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### Setup App Registration
+    - Just follow the steps here [Quickstart Register App](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+    - Copy the Client ID (overview page) and client secret.
 
-## Laravel Sponsors
+### Setup Laravel
+    - Install [metrogistics/laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth)        
+```
+    composer require metrogistics/laravel-azure-ad-oauth:* -w
+```        
+    - On the env vars of Laravel, place the client ID and client secret.
+```    
+    AZURE_AD_CLIENT_ID=XXXX
+    AZURE_AD_CLIENT_SECRET=XXXX
+```
+    - Finally update the database, make password field nullable and add a new field/column called 'azure_id with VARCHAR(36)'
+```
+Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
+Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
+```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Usage
+    - Access the [login page](http://yourdomain.com/login)
+    <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/login.jpg" width="400">
+    - Access [microsoft login page](http://yourdomain.com/login/microsoft)
+    <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/mslogin.jpg" width="400">
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-- **[Romega Software](https://romegasoftware.com)**
+## Known Issue
+- 'Forbidden page'
+https://stackoverflow.com/questions/18392741/apache2-ah01630-client-denied-by-server-configuration
 
-## Contributing
+- 'Error AADSTS50011 - The reply URL specified in the request does not match the reply URLs configured for the application'
+https://docs.microsoft.com/en-us/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch
+Double check callback URL should be: http://localhost:8999/login/microsoft/callback
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- 'Class "\App\User" not found'
+solution: https://github.com/JosephSilber/bouncer/issues/539
+
+- 'Class "Metrogistics\AzureSocialite\InvalidStateException" not found'
+solution: https://github.com/metrogistics/laravel-azure-ad-oauth/issues/3
+
+- 'Command "make:auth" is not defined.'
+https://stackoverflow.com/questions/34545641/php-artisan-makeauth-command-is-not-defined
+
+- 'Laravel\Socialite\Two\InvalidStateException'
+Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
+Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
+
+- 'No CSS and JS, app.js and app.css are not found'
+Need to run on the project folder:
+    - npm install
+    - npm run dev (Make Sure Mix is installed properly)
 
 ## Code of Conduct
 

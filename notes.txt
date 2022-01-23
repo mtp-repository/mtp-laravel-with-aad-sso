@@ -2,11 +2,11 @@ Sources:
 - https://github.com/metrogistics/laravel-azure-ad-oauth
 
 Additional Installation:
-AAD: composer require metrogistics/laravel-azure-ad-oauth:* -w
 Socialite: composer require laravel/socialite
 Update DB:
         - Make password nullable
         - Add colum azure_id
+AAD: composer require metrogistics/laravel-azure-ad-oauth:* -w
 
 
 Changes:
