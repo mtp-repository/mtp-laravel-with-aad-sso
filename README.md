@@ -7,19 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
-
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
-
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This repo is to help Laravel developer use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials.
 
 ## Installation
 
@@ -55,8 +45,11 @@ Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
 ## Usage
 - Access the [login page](http://yourdomain.com/login)
 <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/login.jpg" width="400">
+
 - Access [microsoft login page](http://yourdomain.com/login/microsoft)
 <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/mslogin.jpg" width="400">
+
+- [Adding users that can access the app](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users)
 
 
 ## Known Issue
