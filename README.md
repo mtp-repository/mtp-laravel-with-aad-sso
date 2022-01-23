@@ -24,39 +24,39 @@ Laravel is accessible, powerful, and provides tools required for large, robust a
 ## Installation
 
 ### Prerequisite
-    - Laravel up and running, if not refer to this link [Laravel Installation](https://laravel.com/docs/8.x/installation)
-    - Users to authenticate with the application and "login" [Authentication Installation](https://laravel.com/docs/8.x/authentication)
-    - Authenticate with OAuth providers using Laravel Socialite [Socialite Installation](https://laravel.com/docs/8.x/socialite)
-    - Install NPM
-    - Install Composer
+- Laravel up and running, if not refer to this link [Laravel Installation](https://laravel.com/docs/8.x/installation)
+- Users to authenticate with the application and "login" [Authentication Installation](https://laravel.com/docs/8.x/authentication)
+- Authenticate with OAuth providers using Laravel Socialite [Socialite Installation](https://laravel.com/docs/8.x/socialite)
+- Install NPM
+- Install Composer
 
 ### Setup App Registration
-    - Just follow the steps here [Quickstart Register App](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
-    - Copy the Client ID (overview page) and client secret.
+- Just follow the steps here [Quickstart Register App](https://docs.microsoft.com/en-us/azure/active-directory/develop/quickstart-register-app)
+- Copy the Client ID (overview page) and client secret.
 
 ### Setup Laravel
-    - Install [metrogistics/laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth)        
+- Install [metrogistics/laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth)        
 ```
 composer require metrogistics/laravel-azure-ad-oauth:* -w
 ```        
 
-    - On the env vars of Laravel, place the client ID and client secret.
+- On the env vars of Laravel, place the client ID and client secret.
 ```    
 AZURE_AD_CLIENT_ID=XXXX
 AZURE_AD_CLIENT_SECRET=XXXX
 ```
 
-    - Finally update the database, make password field nullable and add a new field/column called 'azure_id with VARCHAR(36)'    
+- Finally update the database, make password field nullable and add a new field/column called 'azure_id with VARCHAR(36)'    
 ```
 Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
 Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
 ```
 
 ## Usage
-    - Access the [login page](http://yourdomain.com/login)
-    <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/login.jpg" width="400">
-    - Access [microsoft login page](http://yourdomain.com/login/microsoft)
-    <img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/mslogin.jpg" width="400">
+- Access the [login page](http://yourdomain.com/login)
+<img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/login.jpg" width="400">
+- Access [microsoft login page](http://yourdomain.com/login/microsoft)
+<img src="https://raw.githubusercontent.com/mtp-repository/mtp-laravel-with-aad-sso/main/public/images/mslogin.jpg" width="400">
 
 
 ## Known Issue
