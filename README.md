@@ -82,10 +82,10 @@ Need to run on the project folder:
 ```
 php artisan cache:clear
 ```
-or maunally delete the cache view in storage/framework/views [reference](https://stackoverflow.com/questions/37503627/blade-view-not-reflecting-changes)
+    - or maunally delete the cache view in storage/framework/views [reference](https://stackoverflow.com/questions/37503627/blade-view-not-reflecting-changes)
 
 - For Azure App Service issue: getting 'Forbidden' page and not picking up the .htacces file
-Check the PHP version, Once I selected PHP 7.4 it worked, some compatibility issue on PHP 8
+    - Check the PHP version, Once I selected PHP 7.4 it worked, some compatibility issue on PHP 8
 
 ## Code of Conduct
 
