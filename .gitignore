@@ -3,6 +3,7 @@
 /public/storage
 /storage/*.key
 /vendor
+/apache/config/laravel-aad-sso.conf
 .env
 .env.backup
 .phpunit.result.cache

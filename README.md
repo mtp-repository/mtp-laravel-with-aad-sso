@@ -52,15 +52,15 @@ Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
 - [Adding users that can access the app](https://docs.microsoft.com/en-us/azure/active-directory/manage-apps/add-application-portal-assign-users)
 
 
-## Known Issue
-- 'Forbidden page'
+## Common issues
+- 'Forbidden page' on load
 https://stackoverflow.com/questions/18392741/apache2-ah01630-client-denied-by-server-configuration
 
-- 'Error AADSTS50011 - The reply URL specified in the request does not match the reply URLs configured for the application'
+- 'Error AADSTS50011 - The reply URL specified in the request does not match the reply URLs configured for the application' on SSO
 https://docs.microsoft.com/en-us/troubleshoot/azure/active-directory/error-code-aadsts50011-reply-url-mismatch
 Double check callback URL should be: http://localhost:8999/login/microsoft/callback
 
-- 'Class "\App\User" not found'
+- 'Class "\App\User" not found' after login
 solution: https://github.com/JosephSilber/bouncer/issues/539
 
 - 'Class "Metrogistics\AzureSocialite\InvalidStateException" not found'
@@ -112,6 +112,3 @@ Dinno Ebora - [LinkedIn](https://www.linkedin.com/in/cenonebora/)
 ## Credits
 
 Credit belong to metrogistics for creating the package [laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth), no copyright infringement intended.
-
-
-
