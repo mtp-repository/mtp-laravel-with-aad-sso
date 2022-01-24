@@ -78,6 +78,15 @@ Need to run on the project folder:
     - npm install
     - npm run dev (Make Sure Mix is installed properly)
 
+- View changes does not reflect
+```
+php artisan cache:clear
+```
+or maunally delete the cache view in storage/framework/views [reference](https://stackoverflow.com/questions/37503627/blade-view-not-reflecting-changes)
+
+- For Azure App Service issue: getting 'Forbidden' page and not picking up the .htacces file
+Check the PHP version, Once I selected PHP 7.4 it worked, some compatibility issue on PHP 8
+
 ## Code of Conduct
 
 In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
