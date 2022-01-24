@@ -9,7 +9,7 @@
 
 ## About
 
-This repo is to help Laravel developer use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials.
+This repo is to help Laravel developer use the Azure Active Directory Admin Center to enable single sign-on (SSO) for an enterprise application that you added to your Azure Active Directory (Azure AD) tenant. After you configure SSO, your users can sign in by using their Azure AD credentials. This is using [laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth) package and making some tweaks to make it work.
 
 ## Installation
 
@@ -105,6 +105,13 @@ In order to ensure that the Laravel community is welcoming to all, please review
 
 If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
-## License
+## Developer
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+Dinno Ebora - [LinkedIn](https://www.linkedin.com/in/cenonebora/)
+
+## Credits
+
+Credit belong to metrogistics for creating the package [laravel-azure-ad-oauth](https://github.com/metrogistics/laravel-azure-ad-oauth), no copyright infringement intended.
+
+
+
