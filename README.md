@@ -72,6 +72,11 @@ https://stackoverflow.com/questions/34545641/php-artisan-makeauth-command-is-not
 - 'Laravel\Socialite\Two\InvalidStateException'
 Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
 Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
+```
+USE laravel;
+ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
+ALTER TABLE users MODIFY password varchar(255) null;
+```
 
 - 'No CSS and JS, app.js and app.css are not found'
 Need to run on the project folder:
@@ -86,6 +91,11 @@ php artisan cache:clear
 
 - For Azure App Service issue: getting 'Forbidden' page and not picking up the .htacces file
     - Check the PHP version, Once I selected PHP 7.4 it worked, some compatibility issue on PHP 8
+
+- For production env, use https
+    - On .env change APP_ENV to production
+    - On .env change APP_DEBUG to false
+    - Code changes: https://stackoverflow.com/questions/35827062/how-to-force-laravel-project-to-use-https-for-all-routes
 
 ## Code of Conduct
 
