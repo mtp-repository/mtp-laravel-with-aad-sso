@@ -70,8 +70,8 @@ solution: https://github.com/metrogistics/laravel-azure-ad-oauth/issues/3
 https://stackoverflow.com/questions/34545641/php-artisan-makeauth-command-is-not-defined
 
 - 'Laravel\Socialite\Two\InvalidStateException'
-Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
-Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
+    - Add column to users table: ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
+    - Make password nullable: ALTER TABLE users MODIFY password varchar(255) null;
 ```
 USE laravel;
 ALTER TABLE users ADD COLUMN azure_id VARCHAR(36) AFTER id;
